@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Real Time Circles Exam</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+        <script type ="text/javascript">
+             $(document).ready(function (){
+                const socket = io();
+                let person = prompt("Please enter your name");
+                //Setting of default color and selected color
+                let color = "yellow";
+                $('#yellow').css('border', '3px solid black');
+                $('.colorpick').click(function() {
+                    color = $(this).css('background-color');
+                    resetSelect();
+                    $(this).css('border', '3px solid black');
+                });
+                
+                //Jquery codes to identify mouse movement and clicking of buttons
+                $('#area').click(function() {
+                    let diameter = Math.floor(Math.random() * 200 + 30);
+                    let circles = "<p class=\"\circle\"\style=\"\position:absolute; top:"+event.clientY+"px; left:"+event.clientX+"px; width:"+diameter+"px; height:"+diameter+"px; line-height:"+diameter+"px; border-radius:"+diameter/2+"px; background-color:"+color+" \"\>"+person+"</p>";
+                    socket.emit('write',circles);
+                });
+                $('#reset').click(function() {
+                    resetSelect();
+                    color="yellow";
+                    $('#yellow').css('border', '3px solid black');
+                    socket.emit('reset');
+                });
+                $('body').mousemove(function(){
+                    socket.emit('mouseMove',{clientId:socket.id,x:event.clientX,y:event.clientY, name:person})
+                })
+
+                //Socket codes
+                socket.emit('logIn',{person})
+                socket.on('updateUsers',function(){
+                    socket.emit('parseActive');
+                })
+                socket.on('updateUsersCurr',function(logs){
+                    $('#board').html(logs);
+                })
+                socket.on('updateArea',function(circles){
+                    $('#area').html(circles);
+                })
+                    //Mouse related
+                socket.on('mouseTracker',function(mouseLogs){
+                    $('#mouse').html(mouseLogs);
+                })
+                socket.on('refreshMouse',function(){
+                    socket.emit('updateMouse');
+                })
+
+                //Functions used
+                function resetSelect(){
+                    const selectables = document.getElementsByClassName("colorpick");
+                    for(let i = 0; i < selectables.length; i++){
+                        selectables[i].style.border = "none";
+                    }
+                }
+            })
+        </script>
+    </head>
+    <body>
+        <div id="mouse"></div>
+        <div id="actions">
+        <input type=button id='yellow' class='colorpick'></button>
+        <input type=button id='green' class='colorpick'></button>
+        <input type=button id='blue' class='colorpick'></button>
+        <input type=button id='purple' class='colorpick'></button>
+        <input type=button id='reset' value="Reset"></button>
+        </div>
+        <div id = area></div>
+        <div id="board"></div>
+    </body>
+</html>

@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+
+<header>
+<h1>TikTok</h1>
+<p>Welcome, <a href="/profile/<%=session[:user]["id"]%>"><%=session[:user]["name"]%></a>| <a href="/logout">logout</a>
+</header>
+
+<h2><%=session[:view_user]["name"]%> <a href="/follow/<%=session[:user]["id"]%>/<%=session[:view_user]["id"]%>">Follow</a></h2>
+<h3>Member since <%=session[:view_joined]%>
+<h4><a href="/followers_visitor/<%=session[:view_user]["id"]%>"><%=session[:view_followers].count%> followers</a><h4>
+
+<div class="recent">
+<h2>Recently joined TikTok</h2>
+<% session[:latest_users].each do |data| %>
+    <h5><a href="/profile/<%=session[:user]["id"]%>/view/<%=data["id"]%>"><%=data["name"]%></a></h5>
+<% end %>  
+</div>
+

@@ -1,0 +1,48 @@
+body{
+    max-width:1600px;
+    margin: 0 auto;
+    margin-top:10px;
+}
+#board{
+    width:450px;
+    height:700px;
+    border: 2px solid black;
+    display:inline-block;
+    vertical-align:top;
+}
+#area{
+    height:800px;;
+    width:900px;
+    border: 2px solid black;
+    display:inline-block;
+    vertical-align:top;
+}
+input{
+    width:70px;
+    height:35px;
+}
+.circle{
+    text-align:center;
+    border:1px solid black;
+}
+#reset{
+    position:absolute;
+    margin-left:120px;
+    top:12px;
+    width:100px;
+}
+#board p{
+    margin-left:15px;
+}
+#yellow{
+    background-color:yellow;
+}
+#green{
+    background-color:green;
+}
+#blue{
+    background-color:blue;
+}
+#purple{
+    background-color:purple;
+}

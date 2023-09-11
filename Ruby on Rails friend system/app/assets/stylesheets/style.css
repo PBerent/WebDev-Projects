@@ -1,0 +1,27 @@
+label{
+    display:block;
+    margin:20px;
+}
+#submit{
+    width:350px;
+    height:40px;
+    background-color: rgba(104, 104, 202, 0.753);
+}
+a{
+    font-size:20px;
+    margin:10px;
+}
+
+header{
+    display:block;
+    border-bottom: 3px solid black;
+}
+h1,p{
+    display:inline-block;
+}
+p{
+    margin-left: 200px;
+}
+.recent{
+    margin-top:100px;
+}

@@ -1,0 +1,144 @@
+@font-face{
+    font-family: amazon;
+    src:url(Amazon\ Ember.ttf);
+}
+
+*{
+    margin:0px;
+    padding:0px;
+    font-size:12px;
+    font-family:amazon;
+}
+
+#category{
+    width:40px;
+    height:30px;
+    margin:5px;
+}
+
+#search{
+    height:30px;
+    width:340px;
+}
+
+#submit{
+    height:30px;
+    width:30px;
+    background-color:#F3A847;
+}
+
+#language{
+    width:42px;
+    background-color:#131921;
+    color:white;
+}
+
+#checkout{
+    display:inline-block;
+}
+
+.page{
+    width: 970px;
+    margin: 0px auto;
+    background-color:rgba(255, 255, 255, 0.589);
+    min-height:960px;
+}
+
+header{
+    background-color:#131921;
+    vertical-align:bottom;
+}
+    header a{
+        display:block;
+        text-decoration:none;
+        color:white;
+        margin:4px;
+    }
+    header a span{
+        display:block;
+        font-size:14px;
+    }
+    .account{
+        display:inline-block;
+        margin:4px;
+    }
+    header img{
+        background-color:#131921;
+        display:inline-block;
+        vertical-align:center;
+        width:70px;
+        margin:4px;
+    }
+
+nav{
+    background-color:#232F3E;
+}
+    nav h1,h2,h3{
+        display:inline-block;
+    }
+    nav a{
+        color:white;
+        text-decoration:none;
+    }
+    nav h1{
+        margin:5px 5px 5px 20px;
+        font-weight:bold;
+    }
+    nav h2{
+        margin:5px;
+        font-weight:normal;
+    }
+    nav h3{
+        margin:5px 5px 5px 370px;
+        font-weight:normal;
+    }
+
+section{
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.0), rgba(227,230,230,1)),
+    url('Lunar.png');
+    background-position:top;
+    background-size:contain;
+    background-repeat:no-repeat;
+    width:970px;
+    height:620px;
+    padding-top:140px;
+}
+    section article{
+        display:inline-block;
+        background-color:#FFFFFF;
+        width:200px;
+        height:260px;
+        margin:20px 20px 10px 20px;
+    }
+    section article a{
+        display:inline-block;
+        text-decoration:none;
+    }
+    section article a img{
+        width:170px;
+        height:150px;
+        margin:10px 15px 15px 15px;
+    }
+    section article h2{
+        margin:5px 10px;
+        height:32px;
+        font-weight:bold;
+        font-size:16px;
+    }
+
+footer{
+    text-align:center;
+    background-color:#232F3E;
+}
+    footer ul{
+        list-style-type:none;
+    }
+    footer li{
+        display:inline-block;
+    }
+    footer a,p{
+        margin:5px;
+        color:white;
+        text-decoration:none;
+        font-size:9px;
+    }
